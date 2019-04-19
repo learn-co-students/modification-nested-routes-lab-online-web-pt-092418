@@ -1,5 +1,9 @@
 <%= form_for @song  do |f| %>
-  <% !@artist.nil? ? artist_id_field(@song) : artist_select(@artist, @song)%>
+  <% if !@artist.nil? %>
+    <%= artist_id_field(@song) %>
+  <% else %>
+    <%= artist_select(@artist, @song) %>
+  <% end %>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
   <%= f.label :artist_name %>
